@@ -1,3 +1,4 @@
+# This is an example!
 mysql:
   server:
     # root_password: False - to have root@localhost without password
@@ -11,12 +12,18 @@ mysql:
       port: 3307
       binlog_do_db: foo
       auto_increment_increment: 5
+      log_slow_verbosity: query_plan
+      innodb_buffer_pool_size: 256M
+      innodb_log_buffer_size: 8M
+      innodb_file_per_table: 1
+      innodb_open_files: 400
+      innodb_io_capacity: 400
     mysql:
       # my.cnf param that not require value
       no-auto-rehash: noarg_present
 
   # Manage databases
-  database:
+  database.present:
     - foo
     - bar
   schema:
@@ -26,9 +33,13 @@ mysql:
     bar:
       load: False
 
+  # We want to remove the `test` Database.
+  database.absent:
+    - test
+
   # Manage users
   # you can get pillar for existent server using scripts/import_users.py script
-  user:
+  user.present:
     frank:
       password: 'somepass'
       host: localhost
@@ -52,6 +63,12 @@ mysql:
       host: localhost
       databases: []
 
+  user.absent:
+    john:
+      host: localhost
+    jane:
+      host: localhost
+
   # Override any names defined in defaults.yaml
   lookup:
     server: mysql-server
@@ -61,6 +78,7 @@ mysql:
     # change place of datadir - see defaults.yaml
     datadir:
       change_it: True
+      data_dir_custom: /your/custom/path
     client: mysql-client
     service: mysql-service
     python: python-mysqldb

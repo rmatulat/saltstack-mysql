@@ -6,3 +6,5 @@ include:
   - mysql.repo_config
   - mysql.server
   - mysql.mysql_config
+  - mysql.users
+  - mysql.database

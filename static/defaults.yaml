@@ -9,6 +9,7 @@ Ubuntu:
   service: mysql
   python: python-mysqldb
   debconf_utils: debconf-utils
+  schema_root: /etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -64,6 +65,7 @@ Debian:
   service: mysql
   python: python-mysqldb
   debconf_utils: debconf-utils
+  schema_root: /etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -117,6 +119,7 @@ CentOS:
   client: mysql
   service: mysqld
   python: MySQL-python
+  schema_root: /etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -141,6 +144,7 @@ RedHat:
   client: mysql
   service: mysqld
   python: MySQL-python
+  schema_root: /etc/mysql/schemas
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -165,6 +169,7 @@ Fedora:
   client: mariadb
   service: mariadb
   python: MySQL-python
+  schema_root: /etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -189,6 +194,7 @@ Amazon:
   client: mysql
   service: mysqld
   python: MySQL-python
+  schema_root: /etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -210,6 +216,7 @@ Gentoo:
   client: dev-db/mysql
   service: mysql
   python: dev-python/mysql-python
+  schema_root: /etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
@@ -294,6 +301,7 @@ FreeBSD:
   client: mysql56-client
   service: mysql-server
   python: pymysql
+  schema_root: /usr/local/etc/mysql/schemata
   datadir:
     change_it: False
     data_dir_custom: /opt/mysql
