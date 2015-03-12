@@ -35,6 +35,15 @@ Do not call it directly! It's just needed while doing the server installation!
 
 This is not working for itself - but it's called in `state.highstate`.
 
+## `mysql.users`
+
+It creates users who should be present and removes those who should be absent.
+
+## `mysql.database`
+
+Same as `mysql.users` but for databases.
+Take a look at the examples.
+
 # Note
 
 The static, default yaml files have been moved to the `static` directory to keep the `.sls` files together and
